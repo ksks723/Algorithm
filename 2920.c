@@ -12,21 +12,21 @@ int main(void)
 
     for (int i = 0; i < 8; i++)
     {
-        if (arr[i] != i + 1)
+        if (arr[i] == i + 1)
         {
-            asce = 1;
+            asce++;
         }
-        if (arr[i] != 8 - i)
+        if (arr[i] == 8 - i)
         {
-            desc = 1;
+            desc++;
         }
     }
 
-    if (asce == 1)
+    if (asce == 8)
     {
         printf("ascending");
     }
-    else if (desc == 1)
+    else if (desc == 8)
     {
         printf("descending");
     }
