@@ -2,6 +2,7 @@
 
 int main(void)
 {
+
     int arr[11];
     int res = 0;
     int ck;
