@@ -3,5 +3,11 @@
 int main(void)
 {
     int num, max;
-    scanf("%d %d", &num, &max);
+    int length;
+    int card[100] =
+        scanf("%d %d", &num, &max);
+    for (int i = 0; i < length; i++)
+    {
+        scanf("%d", )
+    }
 }
