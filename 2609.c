@@ -1,21 +1,24 @@
 #include <stdio.h>
 #include <string.h>
-int gcd(int a, int b)
-{
-    if (b == 0)
-    {
-        return a;
-    }
-    else
-    {
-        return gcd(b, a % b);
-    }
-}
+
 int main(void)
 {
-    int a, b;
+    int a, b, c;
     int temp;
     scanf("%d %d", &a, &b);
-    temp = gcd(a, b);
-    printf("%d\n%d", temp, a * b / temp);
+    if (b > a)
+    {
+        temp = a;
+        a = b;
+        b = temp;
+    }
+    temp = a * b;
+    while (c != 0)
+    {
+        c = a % b;
+        a = b;
+        b = c;
+    }
+    printf("%d\n", a);
+    printf("%d", temp / a);
 }
