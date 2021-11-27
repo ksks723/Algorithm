@@ -3,5 +3,12 @@
 
 int main(void)
 {
-    //해야함
+    int gru, m;
+    scanf("%d %d", &gru, &m);
+
+    for (int i = 0; i < gru, i++)
+    {
+        int a, b, c, d;
+        scanf("%d %d %d %d", &a, &b, &c, &d);
+    }
 }
