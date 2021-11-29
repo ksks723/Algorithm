@@ -12,7 +12,7 @@ int main(void)
     {
         scanf("%d", &arr[i]);
 
-        if ((arr[i] / 2) <= (30 - sum))
+        if ((arr[i] + 1) / 2 <= 30 - sum)
         {
             cnt++;
         }
