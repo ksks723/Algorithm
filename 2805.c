@@ -1,14 +1,15 @@
 #include <stdio.h>
-#include <string.h>
-int tree[1000001];
+
+unsigned long long tree[1000001];
 int main(void)
 {
-    int n, m, max = 0, left = 0, right, res = 0;
+    int n, m;
+    long long max = 0, left, right, res = 0;
     scanf("%d %d", &n, &m);
 
     for (int i = 0; i < n; i++)
     {
-        scanf("%d", &tree[i]);
+        scanf("%lld", &tree[i]);
         if (max < tree[i])
         {
             max = tree[i];
@@ -19,25 +20,27 @@ int main(void)
     right = max;
     while (left <= right)
     {
-        int mid = (left + right) / 2;
-
+        long long mid = (left + right) / 2;
+        long long total = 0;
         for (int i = 0; i < n; i++)
         {
             if (tree[i] > mid)
             {
-                res += tree[i] - mid;
+                total += tree[i] - mid;
             }
         }
-        if (res == m)
+        if (total >= m && mid > res)
         {
             res = mid;
-            left += 1;
+        }
+        if (res < mid)
+        {
+            right = mid - 1;
         }
         else
         {
-            right -= 1;
-            res = 0;
+            left = mid + 1;
         }
     }
-    printf("%d", res);
+    printf("%lld", res);
 }
