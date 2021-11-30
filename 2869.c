@@ -4,7 +4,7 @@
 int main(void)
 {
     int a, b, v;
-    int day = 0, dalpaeng = 0;
+    int day = 0;
     scanf("%d %d %d", &a, &b, &v);
 
     int temp = v - a;
