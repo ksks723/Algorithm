@@ -1,5 +1,6 @@
-if (cnt != 0 && cnt == rem)
-            // {
-            //     temp[len / 2] = alpha[rem] + 'A';
-            //     cnt--;
-            // }
+if (cnt == 1)
+        {
+            printf("c   %c", temp[len / 2]);
+            temp[len / 2] = rem;
+            cnt--;
+        }
