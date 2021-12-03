@@ -4,7 +4,7 @@
 int main(void)
 {
 
-    while (1)
+    while (true)
     {
         bool ck = true;
         char num[10];

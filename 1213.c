@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include <stdbool.h>
 bool is_odd(int a)
 {
@@ -13,14 +14,25 @@ bool is_odd(int a)
     }
 }
 
+void p(char *a, int i)
+{
+    printf("\nprint : ");
+    for (int j = 0; j < i; j++)
+    {
+        printf("%c ", a[j]);
+    }
+    printf("\n");
+}
+
 int main(void)
 {
-    char num[51];
+    char num[51] = {0};
     int alpha[26] = {0};
-    scanf("%s", &num);
+    scanf("%s", num);
     int len = strlen(num);
     int cnt = 0, alphacnt = 0, al = 0, ckcnt = 0;
     char temp[51] = {0}, rem;
+    memset(temp, '_', len);
     for (int i = 0; i < len; i++)
     {
         alpha[num[i] - 'A']++;
@@ -41,24 +53,37 @@ int main(void)
     if (cnt >= 2)
     {
         printf("I'm Sorry Hansoo\n");
+        return 0;
+    }
+    int jjj = 0;
+    if (cnt == 1)
+    {
+        temp[len / 2] = rem;
+        cnt--;
+        p(temp, len);
     }
     while (ckcnt < alphacnt)
     {
         if (alpha[al] != 0)
         {
-            if (cnt == 1)
+            for (int j = 0; (j < alpha[al] / 2) && al < 26; j++)
             {
-                temp[len / 2] = rem;
-                cnt--;
-            }
-            for (int j = 0; j < alpha[al] / 2; j++)
-            {
-                temp[ckcnt] = 'A' + al;
-                temp[len - 1 - ckcnt] = 'A' + al;
+                if (ckcnt != 0)
+                {
+                    jjj = alpha[al] / 2 - 1;
+                }
+                temp[ckcnt + j + jjj] = 'A' + al;
+                temp[len - 1 - (ckcnt + j + jjj)] = 'A' + al;
+                p(temp, len);
             }
             ckcnt++;
         }
         al++;
     }
-    printf("%s\n", temp);
+    for (int i = 0; i < len; i++)
+    {
+        printf("%c", temp[i]);
+    }
+
+    //printf("%s\n", temp);
 }
