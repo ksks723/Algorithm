@@ -16,12 +16,20 @@ bool is_odd(int a)
 
 int main(void)
 {
-    char num[51] = {0};
-    int alpha[26] = {0};
+    char num[51] = {
+        0,
+    };
+    int alpha[26] = {
+        0,
+    };
     scanf("%s", num);
     int len = strlen(num);
     int cnt = 0, alphacnt = 0, al = 0, ckcnt = 0;
-    char temp[51] = {0}, rem;
+    char temp[51] = {
+        0,
+    };
+    char rem = 0;
+
     for (int i = 0; i < len; i++)
     {
         alpha[num[i] - 'A']++;
@@ -61,7 +69,6 @@ int main(void)
                 if (j == (alpha[al] / 2) - 1)
                 {
                     idx += j;
-                    //alpha[al] / 2 - 1;
                 }
             }
             ckcnt++;
@@ -70,3 +77,20 @@ int main(void)
     }
     printf("%s\n", temp);
 }
+
+// printf("\n");
+// printf("\n");
+
+// for (int i = 0; i < 51; i++)
+//     printf("%d ", num[i]);
+// printf("\n");
+// printf("\n");
+// for (int i = 0; i < 26; i++)
+//     printf("%d ", alpha[i]);
+// printf("\n");
+// printf("\n");
+// for (int i = 0; i < 51; i++)
+//     printf("%d ", temp[i]);
+
+// printf("\n");
+// printf("\n");
