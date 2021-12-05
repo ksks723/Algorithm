@@ -42,9 +42,9 @@ int main(void)
         }
         if (is_odd(alpha[i]))
         {
-            cnt++;         //홀수가 두개이상인지 확인용
-            rem = 'A' + i; //홀수의 인덱스 기억용
-            alpha[i]--;    //짝수나 영으로 만들어주는용
+            cnt++;
+            rem = 'A' + i;
+            alpha[i]--;
         }
     }
     if (cnt >= 2)
