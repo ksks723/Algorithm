@@ -66,7 +66,7 @@ int main(void)
             {
                 temp[ckcnt + j + idx] = 'A' + al;
                 temp[len - 1 - (ckcnt + j + idx)] = 'A' + al;
-                if (j == (alpha[al] / 2) - 1)
+                if (j == (alpha[al] / 2) - 1 && ckcnt != alphacnt - 1)
                 {
                     idx += j;
                 }
@@ -77,20 +77,3 @@ int main(void)
     }
     printf("%s\n", temp);
 }
-
-// printf("\n");
-// printf("\n");
-
-// for (int i = 0; i < 51; i++)
-//     printf("%d ", num[i]);
-// printf("\n");
-// printf("\n");
-// for (int i = 0; i < 26; i++)
-//     printf("%d ", alpha[i]);
-// printf("\n");
-// printf("\n");
-// for (int i = 0; i < 51; i++)
-//     printf("%d ", temp[i]);
-
-// printf("\n");
-// printf("\n");
