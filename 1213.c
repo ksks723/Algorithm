@@ -66,7 +66,7 @@ int main(void)
             {
                 temp[ckcnt + j + idx] = 'A' + al;
                 temp[len - 1 - (ckcnt + j + idx)] = 'A' + al;
-                if (j == (alpha[al] / 2) - 1 && ckcnt != alphacnt - 1)
+                if (ckcnt + 1 < alphacnt && j == (alpha[al] / 2) - 1)
                 {
                     idx += j;
                 }
