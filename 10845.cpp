@@ -8,7 +8,7 @@ void front()
 {
     if (!q.empty())
     {
-        printf("%d", q.front());
+        printf("%d\n", q.front());
     }
     else
     {
@@ -19,7 +19,7 @@ void back()
 {
     if (!q.empty())
     {
-        printf("%d", q.back());
+        printf("%d\n", q.back());
     }
     else
     {
@@ -30,7 +30,7 @@ void pop()
 {
     if (!q.empty())
     {
-        printf("%d", q.front());
+        printf("%d\n", q.front());
         q.pop();
     }
     else
@@ -54,10 +54,10 @@ int main(void)
 {
     int input;
     scanf("%d", &input);
-    char order[5];
+    char order[6];
     for (int i = 0; i < input; i++)
     {
-        scanf("%s", &order);
+        scanf("%s", order);
         if (strcmp(order, "push") == 0)
         {
             int a;
@@ -70,7 +70,7 @@ int main(void)
         }
         else if (strcmp(order, "size") == 0)
         {
-            q.size();
+            printf("%d\n", q.size());
         }
         else if (strcmp(order, "empty") == 0)
         {
