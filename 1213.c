@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 bool is_odd(int a)
-{
+{ //해야함
     if (a % 2 == 1)
     {
         return true;
