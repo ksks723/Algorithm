@@ -12,12 +12,11 @@ int main(void)
         q.push(i + 1);
     }
 
-    while (input != 1)
+    while (input-- != 1)
     {
         q.pop();
         q.push(q.front());
         q.pop();
-        input--;
     }
     cout << q.front();
 }
