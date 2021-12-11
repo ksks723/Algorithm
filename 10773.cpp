@@ -1,16 +1,23 @@
 #include <iostream>
 #include <stack>
 using namespace std;
+void fast_io(void)
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+}
 int main(void)
 {
+    fast_io();
     stack<int> s;
     int k, sum = 0;
 
-    scanf("%d", &k);
+    cin >> k;
     for (int i = 0; i < k; i++)
     {
         int n;
-        scanf("%d", &n);
+        cin >> n;
         if (n == 0)
         {
             s.pop();
@@ -27,5 +34,5 @@ int main(void)
         sum += s.top();
         s.pop();
     }
-    printf("%d", sum);
+    cout << sum;
 }
