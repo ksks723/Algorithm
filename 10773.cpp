@@ -6,11 +6,11 @@ int main(void)
     stack<int> s;
     int k, sum = 0;
 
-    cin >> k;
+    scanf("%d", &k);
     for (int i = 0; i < k; i++)
     {
         int n;
-        cin >> n;
+        scanf("%d", &n);
         if (n == 0)
         {
             s.pop();
@@ -27,5 +27,5 @@ int main(void)
         sum += s.top();
         s.pop();
     }
-    cout << sum;
+    printf("%d", sum);
 }
