@@ -18,7 +18,7 @@ int main(void)
         {
             if (num[i] != num[len - 1 - i])
             {
-                ck = false;
+                ck = false; //
             }
         }
         if (ck)
