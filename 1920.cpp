@@ -1,6 +1,28 @@
 #include <iostream>
-#include <stack>
+#include <algorithm>
 using namespace std;
+void getResult(int n, int input, int *arr)
+{
+    int low = 0, high = n, mid;
+    while (low <= high)
+    {
+        mid = (low + high) / 2;
+        if (arr[mid] == input)
+        {
+            cout << "1\n";
+            return;
+        }
+        else if (arr[mid] > input)
+        {
+            high = mid - 1;
+        }
+        else
+        {
+            low = mid + 1;
+        }
+    }
+    cout << "0\n";
+}
 void fast_io(void)
 {
     ios_base::sync_with_stdio(false);
@@ -19,21 +41,12 @@ int main(void)
     {
         cin >> arr[i];
     }
+    sort(arr, arr + n);
     cin >> m;
-    int qu[m] = {
-        0,
-    };
     for (int i = 0; i < m; i++)
     {
-        cin >> qu[i];
-        int ck = 0;
-        for (int j = 0; j < n; j++)
-        {
-            if (qu[i] == arr[j])
-            {
-                ck = 1;
-            }
-        }
-        cout << ck << "\n";
+        int input;
+        cin >> input;
+        getResult(n, input, arr);
     }
 }
