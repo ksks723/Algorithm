@@ -10,12 +10,30 @@ void fast_io(void)
 int main(void)
 {
     fast_io();
-    int k;
-
-    cin >> k;
-    for (int i = 0; i < k; i++)
+    int n, m;
+    cin >> n;
+    int arr[n] = {
+        0,
+    };
+    for (int i = 0; i < n; i++)
     {
-        int n;
-        cin >> n;
+        cin >> arr[i];
+    }
+    cin >> m;
+    int qu[m] = {
+        0,
+    };
+    for (int i = 0; i < m; i++)
+    {
+        cin >> qu[i];
+        int ck = 0;
+        for (int j = 0; j < n; j++)
+        {
+            if (qu[i] == arr[j])
+            {
+                ck = 1;
+            }
+        }
+        cout << ck << "\n";
     }
 }
