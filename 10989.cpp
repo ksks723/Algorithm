@@ -1,9 +1,7 @@
 #include <iostream>
 #include <algorithm>
 using namespace std;
-int arr[10000] = {
-    0,
-};
+int arr[10001];
 void fast_io(void)
 {
     ios_base::sync_with_stdio(false);
@@ -22,12 +20,11 @@ int main(void)
         cin >> j;
         arr[j]++;
     }
-    for (int i = 0; i < 10000; i++)
+    for (int i = 0; i < 10001; i++)
     {
-        while (arr[i] != 0)
+        while (arr[i]-- != 0)
         {
             cout << i << "\n";
-            arr[i]--;
         }
     }
 }
