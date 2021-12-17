@@ -1,37 +1,53 @@
 #include <iostream>
-#include <string>
-#include <algorithm>
+#include <string.h>
+#include <stack>
 using namespace std;
-int alpha[97];
-string hol, zzac;
+
 int main()
 {
-    string s;
-    cin >> s;
-    for (char i : s)
+    int order;
+    stack<int> s;
+    cin >> order;
+    while (order-- != 0)
     {
-        alpha[i]++;
-    }
-    for (char i = 'A'; i <= 'Z'; i++)
-    {
-        if (alpha[i] % 2)
+        char str[6];
+        cin >> str;
+        if (!strcmp(str, "push"))
         {
-            hol += i;
+            int a;
+            cin >> a;
+            s.push(a);
         }
-        for (int j = 0; j < alpha[i] / 2; j++)
+        else if (!strcmp(str, "top"))
         {
-            zzac += i;
+            if (s.empty())
+            {
+                cout << "-1\n";
+            }
+            else
+            {
+                cout << s.top() << "\n";
+            }
         }
-    }
-    if (hol.size() > 1)
-    {
-        printf("I'm Sorry Hansoo");
-    }
-    else
-    {
-        cout << zzac;
-        cout << hol;
-        reverse(zzac.begin(), zzac.end());
-        cout << zzac;
+        else if (!strcmp(str, "size"))
+        {
+            cout << s.size() << "\n";
+        }
+        else if (!strcmp(str, "empty"))
+        {
+            cout << s.empty() << "\n";
+        }
+        else if (!strcmp(str, "pop"))
+        {
+            if (s.empty())
+            {
+                cout << "-1\n";
+            }
+            else
+            {
+                cout << s.top() << "\n";
+                s.pop();
+            }
+        }
     }
 }
