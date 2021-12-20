@@ -7,39 +7,45 @@ void fast_io(void)
     cin.tie(NULL);
     cout.tie(NULL);
 }
+
+int k, n, res = 0;
+int max_arr_value = 0;
+
+long long low = 1, high, mid;
+
 int main(void)
 {
     fast_io();
-    int k, n, max = 0, high, low = 0, cm = 0, ckn = 0;
+
     cin >> k >> n;
-    int arr[k + 1], res;
+    int arr[k + 1];
     for (int i = 0; i < k; i++)
     {
         cin >> arr[i];
-        if (max < arr[i])
-            max = arr[i];
+        if (max_arr_value < arr[i])
+            max_arr_value = arr[i];
     }
-    high = max;
+
+    high = max_arr_value;
+
     while (low <= high)
     {
-        int mid = (low + high) / 2;
-        cm = mid;
+
+        mid = (low + high) / 2;
+        int ckn = 0;
         for (int i = 0; i < k; i++)
         {
-            if (arr[i] / cm)
-                ckn += arr[i] / cm;
+            ckn += arr[i] / mid;
         }
-        if (ckn >= n && ckn > n)
+        if (ckn >= n)
         {
-            res = cm;
-        }
-        if (ckn < n)
-        {
-            high = mid - 1;
+            low = mid + 1;
+            if (res < mid)
+                res = mid;
         }
         else
         {
-            low = mid + 1;
+            high = mid - 1;
         }
     }
     cout << res;
