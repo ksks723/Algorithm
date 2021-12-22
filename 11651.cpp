@@ -3,25 +3,27 @@
 #include <iostream>
 #include <algorithm>
 using namespace std;
-bool compare(pair<int, string> a, pair<int, string> b)
+void fast_io(void)
 {
-    return a.first < b.first;
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
 }
+
 int main(void)
 {
-    vector<pair<int, char *>> v;
-    int n, age;
-
+    fast_io();
+    vector<pair<int, int>> v;
+    int n, a, b;
     cin >> n;
     for (int i = 0; i < n; i++)
     {
-        char *name = new char[101];
-        cin >> age >> name;
-        v.push_back(make_pair(age, name));
+        cin >> a >> b;
+        v.push_back(pair<int, int>(b, a));
     }
-    stable_sort(v.begin(), v.end(), compare);
+    sort(v.begin(), v.end());
     for (int i = 0; i < n; i++)
     {
-        printf("%d %s\n", v[i].first, v[i].second);
+        cout << v[i].second << " " << v[i].first << "\n";
     }
 }
