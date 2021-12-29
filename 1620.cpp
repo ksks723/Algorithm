@@ -8,7 +8,7 @@ void fast_io(void)
     cout.tie(NULL);
 }
 int main(void)
-{
+{ //
     fast_io();
     char c;
     cin >> c;
