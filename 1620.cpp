@@ -14,7 +14,8 @@ int main(void)
     map<int, string> mpInt;
     map<string, int> mpStr;
     int n, m, idx = 0;
-    cin >> n >> m while (n--)
+    cin >> n >> m;
+    while (n--)
     {
         idx++;
         string str;
