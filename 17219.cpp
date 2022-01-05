@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string.h>
 #include <map>
+#include <sstream>
 using namespace std;
 void fast_io(void)
 {
@@ -8,21 +9,24 @@ void fast_io(void)
 	cin.tie(NULL);
 	cout.tie(NULL);
 }
+string c, d;
 int main(void)
 {
 	fast_io();
 	map<string, string> m;
 	int a, b;
 	cin >> a >> b;
+	cin.ignore();
 	while (a--)
 	{
-		string c, d;
-		cin >> c >> d;
+		string all;
+		getline(cin, all);
+		stringstream ss(all);
+		ss >> c >> d;
 		m.insert(make_pair(c, d));
 	}
 	while (b--)
 	{
-		string c;
 		cin >> c;
 		cout << m.find(c)->second << "\n";
 	}

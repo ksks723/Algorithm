@@ -1,17 +1,23 @@
-#include <stdio.h>
-int main(void)
+#include <bits/stdc++.h>
+using namespace std;
+int main()
 {
-    int a, b;
-    while (true)
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    char str[101];
+    cin >> str;
+    int alpha[26];
+    fill_n(alpha, 26, -1);
+    int len = strlen(str);
+    for (int i = 0; i < len; i++)
     {
-        scanf("%d %d", &a, &b);
-        if (a == 0 && b == 0)
-        {
-            break;
-        }
-        else
-        {
-            printf("%d\n", a + b);
-        }
+        if (alpha[str[i] - 97] == -1)
+            alpha[str[i] - 97] = i;
     }
+    for (int a : alpha)
+    {
+        cout << a << " ";
+    }
+
+    return 0;
 }
