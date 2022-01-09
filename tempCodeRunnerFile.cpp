@@ -1,4 +1,5 @@
- for (int i = 0; i < 26; i++)
-    {
-        cout << alpha[i] << " ";
-    }
+for (int i = 0; i < dq.size(); i++)
+                {
+                    cout << dq[i] << " ";
+                }
+                cout << "\n";
