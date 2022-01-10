@@ -1,5 +1,3 @@
-for (int i = 0; i < dq.size(); i++)
-                {
-                    cout << dq[i] << " ";
-                }
-                cout << "\n";
+int num[10] = {
+    0,
+};
