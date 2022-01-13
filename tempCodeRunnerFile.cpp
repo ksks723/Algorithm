@@ -1,3 +1,1 @@
-int num[10] = {
-    0,
-};
+ cout << "\npre[" << nxt[addr] << "] = pre[" << addr << "]\n";
