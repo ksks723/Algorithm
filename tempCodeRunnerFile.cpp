@@ -1,1 +1,7 @@
- cout << "\npre[" << nxt[addr] << "] = pre[" << addr << "]\n";
+  // int m;
+    // cin >> m;
+    // while (m--)
+    // {
+    //     string order;
+    //     cin >> order;
+    // }
