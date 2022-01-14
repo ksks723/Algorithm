@@ -12,7 +12,7 @@ void fast_io(void)
 int main(void)
 {
     fast_io();
-    multiset<int> set;
+    multiset<int> set; //set은 자동정렬된다. 그냥set 과 다른 점은 중복허용
     int t;
 
     cin >> t;
