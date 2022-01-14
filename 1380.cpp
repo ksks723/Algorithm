@@ -1,6 +1,4 @@
 #include <bits/stdc++.h>
-#include <list>
-
 using namespace std;
 void fast_io(void)
 {
@@ -8,47 +6,39 @@ void fast_io(void)
     cin.tie(NULL);
     cout.tie(NULL);
 }
+
 int main(void)
 {
     fast_io();
-    string str;
-    list<char> l;
-    cin >> str;
-    for (int i = 0; i < str.length(); i++)
+    int num = 1;
+    while (num)
     {
-        l.push_back(str[i]);
-    }
-    list<char>::iterator iter = l.end();
-    int m;
-    cin >> m;
-    while (m--)
-    {
-        char order;
-        cin >> order; //abcd
-        if (order == 'L')
+        vector<string> v;
+        int arr[222] = {
+            0,
+        };
+        int n;
+        cin >> n;
+        if (n == 0)
+            break;
+        cin.ignore();
+        for (int i = 0; i < n; i++)
         {
-            if (iter != l.begin())
-                iter--;
+            string str;
+            getline(cin, str);
+            v.push_back(str);
         }
-        else if (order == 'D')
+        for (int i = 0; i < n * 2 - 1; i++)
         {
-            if (iter != l.end())
-                iter++;
-        }
-        else if (order == 'B')
-        {
-            if (iter != l.begin())
-                iter = l.erase(--iter);
-        }
-        else if (order == 'P')
-        {
+            int a;
             char c;
-            cin >> c;
-            l.insert(iter, c);
+            cin >> a >> c;
+            arr[a - 1]++;
         }
-    }
-    for (char c : l)
-    {
-        cout << c;
+        for (int i = 0; i < n; i++)
+        {
+            if (arr[i] != 2)
+                cout << num++ << " " << v[i] << "\n";
+        }
     }
 }
