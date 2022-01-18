@@ -17,7 +17,13 @@ void pop()
 
 int top()
 {
-    return dat[--pos];
+    cout << "top : " << pos << "\n";
+    cout << "top : " << pos - 1 << "\n";
+    cout << "top : " << pos << "\n";
+    cout << "top : " << pos-- << "\n";
+    cout << "top : " << pos << "\n";
+    //return dat[pos--] 로 했을때 오버플로우 된거같아 확인해보니 이런 차이가 있었다.
+    return dat[pos - 1];
 }
 
 void test()
