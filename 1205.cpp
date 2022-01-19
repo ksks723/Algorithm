@@ -27,10 +27,7 @@ int main()
     }
     sort(v.rbegin(), v.rend());
     if (v.back() >= score && v.size() == p)
-    {
         cout << "-1";
-    }
-
     else
     {
         v.push_back(score);
