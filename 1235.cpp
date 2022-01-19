@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <set>
 using namespace std;
 void fast_io(void)
 {
@@ -10,6 +11,28 @@ void fast_io(void)
 }
 int main()
 {
-    vector<int> v;
+    vector<string> v;
     fast_io();
+    int n, res = 1;
+    cin >> n;
+    while (n--)
+    {
+        string str;
+        cin >> str;
+        reverse(str.begin(), str.end());
+        v.push_back(str);
+    }
+    while (true)
+    {
+        set<string> s;
+        for (int i = 0; i < v.size(); i++)
+        {
+            s.insert(v[i].substr(0, res));
+        }
+        if (s.size() == v.size())
+            break;
+        else
+            res++;
+    }
+    cout << res;
 }
