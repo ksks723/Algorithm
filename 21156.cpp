@@ -13,10 +13,6 @@ int main()
     fast_io();
     list<int> l;
     std::list<int>::iterator it;
-    //  12345
-    //  4 1  -> 23415
-    //  3 1  -> 23415
-    //  5 3  -> 24153
     int n, m;
     cin >> n >> m;
     for (int i = 1; i <= n; i++)
@@ -44,17 +40,11 @@ int main()
             while (it != l.end())
             {
                 if (*it == loser)
-                {
                     it = l.erase(it++);
-                }
                 else if (*it == winner)
-                {
                     l.insert(++it, loser);
-                }
                 else
-                {
                     it++;
-                }
             }
         }
     }
