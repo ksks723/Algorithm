@@ -1,7 +1,9 @@
 #include <iostream>
 #include <algorithm>
 #include <list>
+#include <string>
 using namespace std;
+
 void fast_io(void)
 {
     ios_base::sync_with_stdio(false);
