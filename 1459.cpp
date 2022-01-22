@@ -1,5 +1,5 @@
 #include <iostream>
-#include <algorithm>jum9koplㅕ
+#include <algorithm>
 using namespace std;
 void fast_io(void)
 {
