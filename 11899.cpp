@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <stack>
 using namespace std;
 void fast_io(void)
 {
@@ -10,20 +11,22 @@ void fast_io(void)
 int main(void)
 {
     fast_io();
+    stack<char> sta;
+    stack<char> tac;
     string s;
     cin >> s;
-    int o = 0, z = 0;
     for (int i = 0; i < s.size(); i++)
     {
-        cout << boolalpha << (s[i] != s[i + 1]) << endl;
-        cout << " idx : " << s[i] << "\n";
-        if (s[i] != s[i + 1])
+        char c = s[i];
+        if (c == '(')
+            sta.push(s[i]);
+        else
         {
-            if (s[i] == '0')
-                z++;
+            if (!sta.empty())
+                sta.pop();
             else
-                o++;
+                tac.push(s[i]);
         }
     }
-    cout << min(o, z);
+    cout << sta.size() + tac.size();
 }
