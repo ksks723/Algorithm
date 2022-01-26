@@ -1,2 +1,5 @@
-int res = 9876564321;
-string a, b;
+  // if (s.top().second == 0)
+            // {
+            //     res += s.top().first;
+            //     s.pop();
+            // }
