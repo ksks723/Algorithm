@@ -1,5 +1,5 @@
-  // if (s.top().second == 0)
-            // {
-            //     res += s.top().first;
-            //     s.pop();
-            // }
+ if (str[i] == '(' || str[i] == '[')
+        {
+            s.push(str[i]);
+            str[i] == '(' ? tmp *= 2 : tmp *= 3;
+       

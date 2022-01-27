@@ -33,7 +33,7 @@ int main()
     }
     cout << res;
 }
-//참고코드
+//참고코드 jjwdi0
 // #include <stdio.h>
 // int a[1003], height, n, area, left;
 // main()
