@@ -1,43 +1,45 @@
 #include <iostream>
 #include <stack>
+
 using namespace std;
-void fast_io(void)
+
+int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-}
-int main(void)
-{
-    fast_io();
-    int res = 0, tmp = 1;
-    stack<char> s;
     string str;
     cin >> str;
+
+    int tmp = 1;
+    int res = 0;
     bool ck = true;
-    for (int i = 0; i < str.size(); i++)
+    stack<char> s;
+
+    for (int i = 0; i < str.length(); i++)
     {
-        if (str[i] == '(')
+        char input = str[i];
+        if (input == '(')
         {
-            s.push(str[i]);
+            s.push('(');
             tmp *= 2;
         }
-        else if (str[i] == '[')
+        else if (input == '[')
         {
-            s.push(str[i]);
+            s.push('[');
             tmp *= 3;
         }
-        else if (str[i] == ')')
+        else if (input == ')')
         {
             if (s.empty() || s.top() != '(')
             {
                 ck = false;
                 break;
             }
-            if (str[i - 1] == '(')
-                res += tmp;
-            s.pop();
-            tmp /= 2;
+            else
+            {
+                if (str[i - 1] == '(')
+                    res += tmp;
+                s.pop();
+                tmp /= 2;
+            }
         }
         else
         {
@@ -46,14 +48,20 @@ int main(void)
                 ck = false;
                 break;
             }
-            if (str[i - 1] == '[')
-                res += tmp;
-            s.pop();
-            tmp /= 3;
+            else
+            {
+                if (str[i - 1] == '[')
+                    res += tmp;
+                s.pop();
+                tmp /= 3;
+            }
         }
     }
-    if (ck || s.empty())
-        cout << res;
+
+    if (!ck || !s.empty())
+        cout << "0\n";
     else
-        cout << "0";
+        cout << res << '\n';
+
+    return 0;
 }
