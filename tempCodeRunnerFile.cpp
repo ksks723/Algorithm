@@ -1,1 +1,1 @@
-cout << i;
+double(a) / n)
