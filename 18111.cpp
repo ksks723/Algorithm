@@ -1,54 +1,147 @@
+// #include <iostream>
+// using namespace std;
+
+// int N, M, B;
+// int minH = 1e9, maxH;
+// int cost = 1e9, height;
+// int field[500][500];
+
+// void solve(int n)
+// {
+//     int block = B, temp = 0;
+
+//     // 높은 땅의 블록 제거
+//     for (int i = 0; i < N; i++)
+//         for (int j = 0; j < M; j++)
+//             if (field[i][j] > n)
+//             {
+//                 temp += 2 * (field[i][j] - n);
+//                 block += field[i][j] - n;
+//             }
+
+//     // 낮은 땅에 블록 놓기
+//     for (int i = 0; i < N; i++)
+//         for (int j = 0; j < M; j++)
+//             if (field[i][j] < n)
+//             {
+//                 temp += n - field[i][j];
+//                 block -= n - field[i][j];
+//                 if (block < 0)
+//                     return;
+//             }
+
+//     // 갱신
+//     if (temp <= cost)
+//     {
+//         cost = temp;
+//         height = max(height, n);
+//     }
+// }
+
+// int main()
+// {
+//     ios_base::sync_with_stdio(0);
+//     cin.tie(0);
+//     cout.tie(0);
+
+//     cin >> N >> M >> B;
+//     for (int i = 0; i < N; i++)
+//     {
+//         for (int j = 0; j < M; j++)
+//         {
+//             cin >> field[i][j];
+//             minH = min(minH, field[i][j]);
+//             maxH = max(maxH, field[i][j]);
+//         }
+//     }
+
+//     for (int i = minH; i <= maxH; i++)
+//         solve(i); // 브루트포스
+
+//     cout << cost << " " << height;
+
+//     return 0;
+// }
+///////////////////////////////////////////////////////////////
+//sslktong
 #include <iostream>
 using namespace std;
 
-void BOJ_18111()
+int main()
 {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
-    int N, M, B;
-    int mintime = 1e9; // (double)(10,0000,0000.0)
-    int max_H = -1;
-    cin >> N >> M >> B;
-    int l[N][M];
-    for (int i = 0; i < N; i++)
-        for (int j = 0; j < M; j++)
-            cin >> l[i][j];
+    int n, m, b, t;
+    cin >> n >> m >> b;
 
-    // 0 ~ 256 모든 높이 계산
-    for (int H = 0; H <= 256; H++)
-    {
-        int inven = 0;
-        int rm = 0;
-        for (int i = 0; i < N; i++)
+    int cnt[257] = {};
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < m; ++j)
         {
-            for (int j = 0; j < M; j++)
-            {
-                int current_H = l[i][j] - H;
-                // l[i][j]가 64라면 current_H의 범위는 [64 ~ -192]
-
-                // current_H가 음수면 inven에서 빼고, 양수면 rm에 더한다.
-                if (current_H < 0)
-                    inven -= current_H; // 부족한 만큼 인벤에서 가져다 쓸 블럭 수 (음수로 기록)
-                else
-                    rm += current_H; // 블록을 제거하고 인벤에 들어온 갯수
-            }
+            cin >> t;
+            cnt[t]++;
         }
-        // 인벤 + 제거 수 >= 인벤에서 사용 수 -> False면 이벤 블록 수가 부족하므로 불가능
-        if (rm + B >= inven)
+
+    int ans, mint = 987654321;
+    for (int h = 256; h >= 0; --h)
+    {
+        int need = 0, gain = 0;
+        for (int i = 0; i < h; ++i)
+            need += (h - i) * cnt[i];
+        for (int i = 256; i > h; --i)
+            gain += (i - h) * cnt[i];
+
+        t = need + gain * 2;
+        if (need <= gain + b)
         {
-            int ttime = 2 * rm + inven; // 제거 수 * 2초 + 놓은 수
-            if (mintime >= ttime)       // 최소 시간보다 작으면 시간과 높이 기록.
+            if (t < mint)
             {
-                mintime = ttime;
-                max_H = H;
+                mint = t;
+                ans = h;
             }
         }
     }
-    cout << mintime << " " << max_H;
+    cout << mint << ' ' << ans;
 }
+//
+#include <iostream>
+using namespace std;
 
 int main()
 {
-    ios_base::sync_with_stdio(0);
+    ios::sync_with_stdio(0);
     cin.tie(0);
-    BOJ_18111();
+
+    int n, m, b, t;
+    cin >> n >> m >> b;
+
+    int cnt[257] = {};
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < m; ++j)
+        {
+            cin >> t;
+            cnt[t]++;
+        }
+
+    int ans, mint = 987654321;
+    for (int h = 256; h >= 0; --h)
+    {
+        int need = 0, gain = 0;
+        for (int i = 0; i < h; ++i)
+            need += (h - i) * cnt[i];
+        for (int i = 256; i > h; --i)
+            gain += (i - h) * cnt[i];
+
+        t = need + gain * 2;
+        if (need <= gain + b)
+        {
+            if (t < mint)
+            {
+                mint = t;
+                ans = h;
+            }
+        }
+    }
+    cout << mint << ' ' << ans;
 }
