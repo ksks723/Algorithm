@@ -12,11 +12,11 @@ int main()
     fast_io();
     while (1)
     {
-        long long n, m;
-        long long res = 0, num;
-        long long posiA = 0, posiB = 0;
-        vector<long long> a;
-        vector<long long> b;
+        int n, m;
+        int res = 0, num;
+        int posiA = 0, posiB = 0;
+        vector<int> a;
+        vector<int> b;
 
         cin >> n >> m;
         if (n == 0 && m == 0)
