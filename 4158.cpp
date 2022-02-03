@@ -12,11 +12,11 @@ int main()
     fast_io();
     while (1)
     {
-        int n, m;
-        int res = 0, num;
-        int posiA = 0, posiB = 0;
-        vector<int> a;
-        vector<int> b;
+        long long n, m;
+        long long res = 0, num;
+        long long posiA = 0, posiB = 0;
+        vector<long long> a;
+        vector<long long> b;
 
         cin >> n >> m;
         if (n == 0 && m == 0)
@@ -35,20 +35,18 @@ int main()
         }
         while (1)
         {
-            if (posiA == n || posiB == m)
+            if (posiA == a.size() || posiB == b.size())
                 break;
-
-            if (a[posiA] < b[posiB])
-            {
+            else if (a[posiA] < b[posiB])
                 posiA++;
-            }
             else if (a[posiA] > b[posiB])
                 posiB++;
-
             else
+            {
                 posiA++;
-            posiB++;
-            res++;
+                posiB++;
+                res++;
+            }
         }
         cout << res << '\n';
     }
