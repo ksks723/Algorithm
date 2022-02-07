@@ -1,54 +1,34 @@
-#include <iostream>
-#include <queue>
+#include <cstdio>
+#include <algorithm>
+
 using namespace std;
-void fast_io(void)
-{
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-}
-int main(void)
-{
-    fast_io();
-    int t;
-    cin >> t;
 
-    while (t--)
+int d[101];
+int s[101];
+
+int main()
+{
+    int tc;
+    scanf("%d", &tc);
+    int n, m, i, t;
+    for (; tc--;)
     {
-        int n, m;
-        int cnt = 0;
-        queue<pair<int, int>> q;
-        priority_queue<int> p;
-
-        cin >> n >> m;
-
-        for (int i = 0; i < n; i++)
+        scanf("%d%d", &n, &m);
+        for (i = 0; i < n; ++i)
+            scanf("%d", d + i), s[i] = -d[i];
+        sort(s, s + n);
+        t = 0;
+        i = 0;
+        while (true)
         {
-            int tmp;
-            cin >> tmp;
-
-            q.push({i, tmp});
-            p.push(tmp);
+            while (d[t] != -s[i])
+                t = (t + 1) % n;
+            ++i;
+            if (t == m)
+                break;
+            t = (t + 1) % n;
         }
-
-        while (!q.empty())
-        {
-            int idx = q.front().first;
-            int val = q.front().second;
-            q.pop();
-            if (p.top() == val)
-            {
-                p.pop();
-                cnt++;
-
-                if (idx == m)
-                {
-                    cout << cnt << "\n";
-                    break;
-                }
-            }
-            else
-                q.push({idx, val});
-        }
+        printf("%d\n", i);
     }
+    return 0;
 }
