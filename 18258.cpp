@@ -1,36 +1,94 @@
 #include <iostream>
+#include <queue>
 #include <string.h>
 using namespace std;
+queue<int> q;
 void fast_io(void)
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
 }
-int q[2000001] = {};
+void front()
+{
+    if (!q.empty())
+    {
+        cout << q.front() << "\n";
+    }
+    else
+    {
+        cout << "-1\n";
+    }
+}
+void back()
+{
+    if (!q.empty())
+    {
+        cout << q.back() << "\n";
+    }
+    else
+    {
+        cout << "-1\n";
+    }
+}
+void pop()
+{
+    if (!q.empty())
+    {
+        cout << q.front() << "\n";
+        q.pop();
+    }
+    else
+    {
+        cout << "-1\n";
+    }
+}
+void empty()
+{
+    if (q.empty())
+    {
+        cout << "1\n";
+    }
+    else
+    {
+        cout << "0\n";
+    }
+}
+
 int main(void)
 {
-    int n, p = 0, r = 0;
-    char str[6];
-
-    scanf("%d", &n);
-    for (int i = 0; i < n; ++i)
+    fast_io();
+    int input;
+    cin >> input;
+    char order[6];
+    for (int i = 0; i < input; i++)
     {
-        cin >> str;
-
-        if (!strcmp(str, "push"))
+        cin >> order;
+        if (!strcmp(order, "push"))
         {
-            cin >> q[r++];
+            int a;
+            cin >> a;
+            q.push(a);
         }
-        else if (!strcmp(str, "pop"))
-            cout << (p - r ? q[p++] : -1) << "\n";
-        else if (!strcmp(str, "size"))
-            cout << r - p << "\n";
-        else if (!strcmp(str, "empty"))
-            printf("%d\n", p == r);
-        else if (!strcmp(str, "front"))
-            cout << (p - r ? q[p] : -1) << "\n";
-        else if (!strcmp(str, "back"))
-            cout << (p - r ? q[r - 1] : -1) << "\n";
+        else if (!strcmp(order, "pop"))
+        {
+            pop();
+        }
+        else if (!strcmp(order, "size"))
+        {
+            cout << q.size() << "\n";
+        }
+        else if (!strcmp(order, "empty"))
+        {
+            empty();
+        }
+        else if (!strcmp(order, "front"))
+        {
+            front();
+        }
+        else if (!strcmp(order, "back"))
+        {
+            back();
+        }
     }
 }
