@@ -1,7 +1,7 @@
 
 #include "get_next_line.h"
 
-static int __get_nl_idx(char *s) //개행 문자 인덱스 반환 , 없으면 -1
+int __get_nl_idx(char *s) //개행 문자 인덱스 반환 , 없으면 -1
 {
     int i;
     const int s_len = ft_strlen(s);
@@ -16,7 +16,7 @@ static int __get_nl_idx(char *s) //개행 문자 인덱스 반환 , 없으면 -1
     return (-1);
 }
 
-static char *__free(char **backup, char **buf) //백업 변수나, 버퍼를 프리해준다. 누수방지.
+char *__free(char **backup, char **buf) //백업 변수나, 버퍼를 프리해준다. 누수방지.
 {
     if (*backup)
         free(*backup);
@@ -25,7 +25,7 @@ static char *__free(char **backup, char **buf) //백업 변수나, 버퍼를 프
     return (NULL);
 }
 
-static char *__split(char **backup, int nl_idx)
+char *__split(char **backup, int nl_idx)
 {
     char *line;
     char *temp;
@@ -56,7 +56,7 @@ static char *__split(char **backup, int nl_idx)
     return (line);
 }
 
-static int __join(char **backup, char *buf, int read_cnt)
+int __join(char **backup, char *buf, int read_cnt)
 {
     char *temp; //임시저장소
 
