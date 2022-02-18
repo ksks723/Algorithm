@@ -26,10 +26,13 @@ int main(void)
         if (i + T[i] - 1 > N)
         {
             dp[i] = dp[i + 1];
+            cout <<"                       i : " << i << " dp : " << dp[i] << "\n";
             continue;
         }
 
-        dp[i] = max(dp[i + T[i]] + P[i], dp[i + 1]);
+        dp[i] = max(dp[i + T[i]] + P[i], dp[i + 1]);//dp5=15, dp4=35, dp3=45,
+        cout << "max(dp[" << i << " + " << T[i] << "] + " << P[i] << ", " << dp[i + 1] << "\n";
+        cout << "                       i : " << i << " dp : " << dp[i] << "\n";
     }
 
     cout << dp[1] << '\n';
