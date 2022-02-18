@@ -1,2 +1,2 @@
- v.assign(n, 0);
-    visited.assign(n, 0);
+ vector<pair<int, int>> v;
+    vector<int> m;
