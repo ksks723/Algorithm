@@ -13,4 +13,4 @@ int main(void)
     cin >> pattern_co >> pattern_cm >> my_co;
 
     cout << " my_cm : " << (pattern_cm * 10 / my_co) / (10 / pattern_co) << "\n";
-}//접미사 다시봐
+}//접미사 다시봐//
