@@ -14,7 +14,7 @@ int main(void)
     long long ans = 0;
     long long sum = 0;
     cin >> n;
-    for (long long i = 1; sum < n; i++)
+    for (long long i = 1; i < n+1; i++)
     {
         if (sum + i <= n)
         {
