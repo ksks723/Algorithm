@@ -12,24 +12,24 @@ vector<int> v;
 int main(void)
 {
     fast_io();
-    int n, l,res=1;
+    int n, l, res = 1;
     cin >> n >> l;
-    for (int i = 0; i < n;i++)
+    for (int i = 0; i < n; i++)
     {
         int num;
         cin >> num;
-       v.push_back(num);
+        v.push_back(num);
     }
     sort(v.begin(), v.end());
     int ll = l;
     for (int i = 1; i < n; i++)
     {
-        ll =ll- (v[i] - v[i-1]);
+        ll = ll - (v[i] - v[i - 1]);
         if (ll < 1)
         {
             res++;
             ll = l;
         }
-        }
-        cout << res;
+    }
+    cout << res;
 }
