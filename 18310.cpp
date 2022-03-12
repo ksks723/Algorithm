@@ -12,7 +12,7 @@ vector<int> v;
 int main(void)
 {
     fast_io();
-    int n, res = 1000001,ans=0;
+    int n;
     cin >> n;
     for (int i = 0; i < n; i++)
     {
