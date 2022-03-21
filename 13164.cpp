@@ -9,34 +9,26 @@ void fast_io(void)
     cout.tie(NULL);
 }
 int arr[300001];
-queue<int> q;
+int Diff[300001];
 int main()
 {
     fast_io();
-    int n, k, res = 0;
+    int n, k;
     cin >> n >> k;
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
     }
-    sort(arr, arr + n);
-    int cnt = 0, memnum = 0;
-    if (n == k) //1,1 2,2
-        memnum = 1;
-    else if (k == 1) //2,1 3,1
-        memnum = n;
-    else
-        memnum = (n + 1) / k;
-    for (int i = 0; i < n; i++)
-    {
-        q.push(arr[i]);
-        cnt++;
-        if (cnt == memnum || i==n-1)
-        {
-            cnt = 0;
-            res += (q.size() == 1) ? 0 : q.back() - q.front();
-            q=queue<int>();
-        }
-    }
-    cout << res;
+    int total = arr[n - 1] - arr[0];
+
+    for (int i = 1; i < n; i++)
+        Diff[i - 1] = arr[i] - arr[i - 1];
+
+   
+    sort(Diff, Diff + n - 1, greater<>());
+
+    for (int i = 0; i < k - 1; i++)
+        total -= Diff[i];
+
+    cout << total;
 }
