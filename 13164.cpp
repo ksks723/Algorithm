@@ -9,7 +9,7 @@ void fast_io(void)
     cout.tie(NULL);
 }
 int arr[300001];
-int Diff[300001];
+int Diff[300001];//
 int main()
 {
     fast_io();
