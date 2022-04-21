@@ -1,75 +1,36 @@
-#include <iostream>
-#include <algorithm>
+#include <stdio.h>
 #include <stack>
+#include <algorithm>
+
 using namespace std;
-void fast_io(void)
+stack<pair<char, int>> s;
+int N, K, i, idx;
+char S[200001], B[200001];
+
+int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-}
-stack<int> s;
-stack<int> tmp;
-int n, k, cnt=1,a;
-bool flag;
-void funS()
-{
-    s.pop();
-    for (int i = 1; i < k - 1;i++)
-        tmp.pop();
-    cnt = 1;
-    flag = true;
-}
-void funB()
-{
-    tmp.pop();
-    for (int i = 1; i < k - 1;i++)
-        s.pop();
-    cnt = 1;
-    flag = true;
-}
-void workS()
-{
-    a = s.top();
-    s.pop();
-    if (a == s.top())
-        cnt++;
-    if (cnt == k)
-        funS();
-    else
-        tmp.push(a); 
-}
-void workB()
-{
-    a = tmp.top();
-    tmp.pop();
-    if (a == tmp.top())
-        cnt++;
-    if (cnt == k)
-        funB();
-    else
-        s.push(a); 
-}
-int main(void)
-{
-    fast_io();
-    cin >> n >> k;
-    for (int i = 0; i < n;i++)
+    scanf("%d %d %s", &N, &K, S);
+    for (i = 0; i < N; i++)
+    {
+        if (s.empty())
+            s.push({S[i], 1});
+        else if (S[i] == s.top().first)
         {
-            cin >> a;
-            s.push(a);
+            s.top().second++;
+            if (s.top().second == K)
+                s.pop();
         }
+        else
+            s.push({S[i], 1});
+    }
+
     while (!s.empty())
     {
-        flag = false;
-        workS();
-        workB();
-        if(flag)
-            break;
+        for (i = 1; i <= s.top().second; i++)
+            B[++idx] = s.top().first;
+        s.pop();
     }
-    for (auto i = 0; i < s.size();i++)
-        {
-            cout << s.top();
-            s.pop();
-        }
+    reverse(B + 1, B + idx + 1);
+    for (i = 1; i <= idx; i++)
+        printf("%c", B[i]);
 }
