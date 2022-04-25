@@ -9,7 +9,7 @@ void fast_io(void)
 }
 int main(void)
 {
-    fast_io();
+    fast_io();//
     int n, res = 0,arr[101]={0,};
     cin >> n;
     for (int i = 1; i < n+1; i++)
