@@ -14,16 +14,22 @@ int main()
 {
     fast_io();
     cin >> classNum;
-    while(classNum--)
+    for(int k=0;k<classNum;k++)
     {
         cin >> studentNum;
-        for (int i = 0; i < studentNum;i++)
+        for (int i = 0; i < studentNum; i++)
         {
             cin >> score;
             v.push_back(score);
         }
         sort(v.begin(), v.end());
-        cout << "Max " << v[studentNum - 1] << ", Min " << v[0] << ", Largest gap " << v[studentNum - 1]-v[0]<<"\n";
+        score = 0;
+		for (int i = 0; i < studentNum-1; i++)
+		{
+			if (score < v[i + 1] - v[i])
+				score = v[i + 1] - v[i];
+		}
+        cout << "Class "<< k+1 <<"\nMax " << v[studentNum - 1] << ", Min " << v[0] << ", Largest gap " << score<<"\n";
         v.clear();
     }
 }
