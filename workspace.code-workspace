@@ -1,0 +1,35 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\RandomTest"
+		},
+		{
+			"path": "..\\JavaScript"
+		},
+		{
+			"path": "..\\Baksu-Club"
+		},
+		{
+			"path": "..\\Yes-I-knitted"
+		},
+		{
+			"path": "..\\taeheonPush"
+		},
+		{
+			"path": "..\\fut"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "JavaScript",
+		"files.associations": {
+			"string.h": "c",
+			"stdio.h": "c",
+			"random": "c",
+			"iostream": "cpp"
+		},
+		"git.ignoreLimitWarning": true
+	}
+}
