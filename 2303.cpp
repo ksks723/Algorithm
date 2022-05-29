@@ -1,5 +1,6 @@
 #include <iostream>
-
+#include <vector>
+#include <algorithm>
 using namespace std;
 void fast_io(void)
 {
@@ -7,9 +8,33 @@ void fast_io(void)
     cin.tie(NULL);
     cout.tie(NULL);
 }
+vector<int> v,arr;
+vector<pair<int, int>> res;
 int main(void)
 {
     fast_io();
-    int t;
-   
+    int n;
+    cin >> n;
+    for (int cnt = 0; cnt < n;cnt++)
+    {
+        for (int i = 0; i < 5;i++)
+        {
+            int a;
+            cin >> a;
+            v.push_back(a);
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            int max = 0;
+            for (int j = i + 1; j < 4; j++)
+                for (int k = j + 1; k < 5; k++)
+                    arr.push_back((v[i] + v[j] + v[k]) % 10);
+        }
+        sort(arr.rbegin(), arr.rend());
+        res.push_back({arr[0],cnt+1});
+        arr.clear();
+        v.clear();
+    }
+    sort(res.rbegin(), res.rend());
+    cout << res[0].second;
 }
