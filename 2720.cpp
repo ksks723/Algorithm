@@ -6,7 +6,7 @@ void fast_io(void)
 	cin.tie(NULL);
 	cout.tie(NULL);
 }
-int money;
+int money,c[]={25,10,5,1};
 int main(void)
 {
 	fast_io();
@@ -15,15 +15,13 @@ int main(void)
 	while(t--)
 	{
 		cin >> money;
-		int a = money/25;
-		money -= (a) ? 25 * a : 0;
-		int b = money/10;
-		money -= (b) ? 10 * b : 0;
-		int c = money/5;
-		money -= (c) ? 5 * c : 0;
-		int d = money/1;
-		money -= (d) ? 1 * d : 0;
-
-		cout << a << " " << b << " " << c << " " << d << "\n";
+		int a=0;
+		for (int i = 0; i < 4;i++)
+		{	
+			int a = money/c[i];
+			money -= (a) ? c[i] * a : 0;
+			cout << a << " ";
+		}
+		cout << "\n";
 	}
 }
