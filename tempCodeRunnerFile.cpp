@@ -1,1 +1,1 @@
- if(max_num < num)
+abs
