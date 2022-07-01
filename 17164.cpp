@@ -22,16 +22,11 @@ int main(void)
     cin >> n >> str;
     for (int i = 1; i < n;i++)
     {
-        if ((str[i - 1] == 'V' && str[i] == 'R') 
-        || (str[i - 1] == 'R' && str[i] == 'V'))
-            lenset();
-        else if ((str[i - 1] == 'V' && str[i] == 'B') 
-        || (str[i - 1] == 'B' && str[i] == 'V'))
-            lenset();
-        else if (str[i - 1] == str[i])
-            lenset();
-        else
+        if ((str[i - 1] == 'R' && str[i] == 'B') 
+        || (str[i - 1] == 'B' && str[i] == 'R'))
             leng++;
+        else
+            lenset();
     }
     cout << max(leng,maxlen);
 }
