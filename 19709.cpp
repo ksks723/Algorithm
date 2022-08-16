@@ -17,15 +17,14 @@ int main(void)
    for(int i=0;i<m;i++)
         cin >> v[i];
     sort(v.begin(),v.end());
-    int tmp = 0;
+    int tmp = 0,cnt=0;
     for(int i=0;i<m;i++)
     {
         if(tmp+v[i]<=n)
+        {    
             tmp+=v[i];
-        else
-        {
-            cout << i;
-            break;
+            cnt++;
         }
     }   
+    cout << cnt;
 }
