@@ -17,10 +17,10 @@ int main(void)
    for(int i=0;i<m;i++)
         cin >> v[i];
     sort(v.begin(),v.end());
-    int tmp = v[0];
-    for(int i=1;i<m;i++)
+    int tmp = 0;
+    for(int i=0;i<m;i++)
     {
-        if(tmp+v[i]<n)
+        if(tmp+v[i]<=n)
             tmp+=v[i];
         else
         {
