@@ -1,15 +1,48 @@
 #include <iostream>
-#include <algorithm>
+#include <vector>
 using namespace std;
-void fast_io(void)
-{
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-}
-int arr[1001], dp[1001], a;
-int main()
-{
-    fast_io();
-   
+ 
+int main(void){
+    int floor;
+    int numOfWind;
+    int wind[5] = {0,};
+    
+    string tmp;
+    cin >> floor;
+    cin >> numOfWind;
+    
+    int *count = new int[numOfWind](); 
+    vector<string> str;
+    for(int i = 0 ; i < (5*floor)+1 ; i++){
+        cin >> tmp;
+        str.push_back(tmp);
+    }
+    
+    for(int i = 1 ; i < (5*floor) ; i++){
+ 
+        for(int j = 0 ; j < numOfWind ; j++){
+ 
+            if(str[i][(5*j)+1] == '.'){
+                continue;
+            }
+            else if(str[i][(5*j)+1] == '*'){
+                count[j] = count[j]+1;
+            }
+        }
+ 
+        if(i%5 == 4){
+            for(int k = 0 ; k < numOfWind ; k++){
+                wind[count[k]]++;
+                count[k] = 0;
+            }
+            i++;
+        }
+    }
+ 
+    for(int i = 0 ; i < 5 ; i ++){
+        cout << wind[i] << " ";
+    }
+    cout << endl;
+ 
+ 
 }
